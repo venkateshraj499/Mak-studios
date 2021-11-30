@@ -1,7 +1,15 @@
 import React from "react";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    background: "black",
+  },
+}));
 
 function Header() {
-  return <div>Header</div>;
+  const classes = useStyles();
+  return <div className={classes.header}>Header</div>;
 }
 
 export default Header;
