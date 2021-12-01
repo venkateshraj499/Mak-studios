@@ -3,10 +3,11 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    marginTop: "-20px",
     display: "flex",
     justifyContent: "space-between",
   },
-  list: {
+  t: {
     display: "flex",
     width: "80%",
     color: "white",
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     "&:hover": {
-      opacity: "0.8",
+      opacity: "0.7",
     },
   },
   logo: {
@@ -49,6 +50,7 @@ function Header() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
+      <div className={classes.black} />
       <img src="/Mak.png" alt="" className={classes.logo} />
       <ul className={classes.list}>
         <li className={classes.listItem}>HOME</li>

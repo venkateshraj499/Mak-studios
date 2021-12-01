@@ -9,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
     overflowY: "hidden",
     backgroundImage: "url(/background.jpg)",
     height: "100vh",
+    marginTop: "0px",
+    backgroundSize: "100% 100vh",
   },
 }));
 
