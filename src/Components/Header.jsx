@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  t: {
+  list: {
     display: "flex",
     width: "80%",
     color: "white",
@@ -50,7 +50,6 @@ function Header() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <div className={classes.black} />
       <img src="/Mak.png" alt="" className={classes.logo} />
       <ul className={classes.list}>
         <li className={classes.listItem}>HOME</li>
