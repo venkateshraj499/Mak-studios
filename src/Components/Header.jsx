@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import Popover from "@mui/material/Popover";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
     height: "130px",
     filter: "brightness(100%)",
     margin: "10px 0",
+    cursor: "pointer",
   },
   icon: {
     display: "none",
@@ -94,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
     margin: "25px",
     paddingBottom: "5px",
+    cursor: "pointer",
     "&:after": {
       content: '""',
       position: "absolute",
@@ -116,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
   const classes = useStyles();
-
+  let navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -131,11 +134,43 @@ function Header() {
 
   const id = open ? "simple-popover" : undefined;
 
-  const headerData = ["HOME", "GALLARY", "PRICING", "ABOUT US", "CONTACT US"];
+  const handleNavigate = (slug) => {
+    navigate(slug);
+  };
+
+  const headerData = [
+    {
+      title: "HOME",
+      slug: "/ ",
+    },
+    {
+      title: "GALLARY",
+      slug: "/gallary",
+    },
+    {
+      title: "PRICING",
+      slug: "/pricing",
+    },
+    {
+      title: "CONTACT US",
+      slug: "/contact",
+    },
+    {
+      title: "ABOUT US",
+      slug: "/about",
+    },
+  ];
 
   return (
     <div className={classes.container}>
-      <img src="/Mak.png" alt="" className={classes.logo} />
+      <img
+        src="/Mak.png"
+        alt=""
+        className={classes.logo}
+        onClick={() => {
+          handleNavigate("/");
+        }}
+      />
       {open ? (
         <ClearIcon
           className={classes.icon}
@@ -165,14 +200,28 @@ function Header() {
         <div className={classes.poppperContent}>
           <ul className={classes.popperList}>
             {headerData.map((item) => (
-              <li className={classes.popperLi}>{item}</li>
+              <li
+                className={classes.popperLi}
+                onClick={() => {
+                  handleNavigate(item.slug);
+                }}
+              >
+                {item.title}
+              </li>
             ))}
           </ul>
         </div>
       </Popover>
       <ul className={classes.list}>
         {headerData.map((item) => (
-          <li className={classes.listItem}>{item}</li>
+          <li
+            className={classes.listItem}
+            onClick={() => {
+              handleNavigate(item.slug);
+            }}
+          >
+            {item.title}
+          </li>
         ))}
       </ul>
     </div>
