@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Popover from "@mui/material/Popover";
 import MenuIcon from "@material-ui/icons/Menu";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   list: {
     display: "flex",
     width: "80%",
-    color: "white",
+    color: "black",
     listStyle: "none",
     justifyContent: "space-evenly",
     alignItems: "center",
@@ -26,11 +27,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "18px",
     cursor: "pointer",
     padding: "5px",
+    marginBottom: "15px",
     "&:after": {
       content: '""',
       position: "absolute",
-      backgroundColor: "#ff4e00",
-      backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
+      backgroundColor: "rgba(24,114,166,255)",
+      backgroundImage: "rgba(24,114,166,255)",
       height: "3px",
       width: "0",
       left: "0",
@@ -47,7 +49,8 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     width: "130px",
     height: "130px",
-    filter: "brightness(200%)",
+    filter: "brightness(100%)",
+    margin: "10px 0",
   },
   icon: {
     display: "none",
@@ -55,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
       marginRight: "15px",
       marginTop: "35px",
-      color: "white",
+      color: "black",
       fontSize: "40px",
     },
   },
@@ -63,7 +66,23 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("764")]: {
       display: "none",
     },
+    [theme.breakpoints.down("764")]: {
+      display: "block",
+      position: "absolute",
+      marginTop: "60px",
+      minWidth: "500px",
+    },
+    [theme.breakpoints.between("600", "764")]: {
+      marginLeft: "62%",
+    },
+    [theme.breakpoints.between("450", "600")]: {
+      marginLeft: "50%",
+    },
+    [theme.breakpoints.down("450")]: {
+      marginLeft: "30%",
+    },
   },
+
   popperList: {
     padding: "15px",
     marginRight: "0px",
@@ -78,8 +97,8 @@ const useStyles = makeStyles((theme) => ({
     "&:after": {
       content: '""',
       position: "absolute",
-      backgroundColor: "#ff4e00",
-      backgroundImage: "linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%)",
+      backgroundColor: "rgba(24,114,166,255)",
+      backgroundImage: "rgba(24,114,166,255)",
       height: "3px",
       width: "0",
       left: "0",
@@ -97,25 +116,41 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
   const classes = useStyles();
+
   const [anchorEl, setAnchorEl] = useState(null);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   const open = Boolean(anchorEl);
+
   const id = open ? "simple-popover" : undefined;
+
+  const headerData = ["HOME", "GALLARY", "PRICING", "ABOUT US", "CONTACT US"];
+
   return (
     <div className={classes.container}>
       <img src="/Mak.png" alt="" className={classes.logo} />
-      <MenuIcon
-        className={classes.icon}
-        onClick={(event) => {
-          handleClick(event);
-        }}
-      />
+      {open ? (
+        <ClearIcon
+          className={classes.icon}
+          onClick={(event) => {
+            handleClick(event);
+          }}
+        />
+      ) : (
+        <MenuIcon
+          className={classes.icon}
+          onClick={(event) => {
+            handleClick(event);
+          }}
+        />
+      )}
       <Popover
         id={id}
         anchorEl={anchorEl}
@@ -129,20 +164,16 @@ function Header() {
       >
         <div className={classes.poppperContent}>
           <ul className={classes.popperList}>
-            <li className={classes.popperLi}>HOME</li>
-            <li className={classes.popperLi}>GALLARY</li>
-            <li className={classes.popperLi}>PRICING</li>
-            <li className={classes.popperLi}>ABOUT US</li>
-            <li className={classes.popperLi}>CONTACT US</li>
+            {headerData.map((item) => (
+              <li className={classes.popperLi}>{item}</li>
+            ))}
           </ul>
         </div>
       </Popover>
       <ul className={classes.list}>
-        <li className={classes.listItem}>HOME</li>
-        <li className={classes.listItem}>GALLARY</li>
-        <li className={classes.listItem}>PRICING</li>
-        <li className={classes.listItem}>ABOUT US</li>
-        <li className={classes.listItem}>CONTACT US</li>
+        {headerData.map((item) => (
+          <li className={classes.listItem}>{item}</li>
+        ))}
       </ul>
     </div>
   );
