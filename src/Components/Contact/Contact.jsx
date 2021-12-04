@@ -3,134 +3,165 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    justifyContent: "center",
-  },
-
-  content:{
-   width:"80%",
-   //margin:"0 auto",
-   position:"absolute",
-   paddingLeft:"174px",
-   marginTop:"-470px"
+  content: {
+    position: "absolute",
+    top: "30%",
+    [theme.breakpoints.between("0", "1000")]: {
+      top: "15%",
+    },
   },
   heading: {
-    fontFamily:
-      " -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-seri !important",
+    fontWeight: "600",
+    paddingLeft: "150px",
+    [theme.breakpoints.between("600", "1000")]: {
+      paddingLeft: "50px",
+    },
+    [theme.breakpoints.down("600")]: {
+      paddingLeft: "16px",
+      fontSize: "24px",
+    },
   },
 
   subtitle: {
-    paddingTop:"20px",
-    fontFamily:
-      " -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-seri !important",
+    paddingTop: "20px",
+    color: "grey",
+    paddingLeft: "150px",
+    [theme.breakpoints.between("600", "1000")]: {
+      paddingLeft: "50px",
+    },
+    [theme.breakpoints.down("600")]: {
+      padding: "20px 16px",
+      color: "black",
+    },
   },
   map: {
     textAlign: "center",
   },
   iframe: {
     border: "none",
+    marginTop: "200px",
+    [theme.breakpoints.down("600")]: {
+      marginTop: "800px",
+    },
+    [theme.breakpoints.between("600", "850")]: {
+      marginTop: "300px",
+    },
+    [theme.breakpoints.between("850", "1000")]: {
+      marginTop: "150px",
+    },
+    [theme.breakpoints.between("1000", "1300")]: {
+      marginTop: "400px",
+    },
   },
   image: {
     marginTop: "-50px",
     width: "100%",
     objectFit: "contain",
-   // height:"580px"
   },
-  Icon:{
-    color:"#32CD30 !important",
-    paddingTop:"25px",
-    paddingBottom:"12px",
-    fontSize: "70px !important"
+  Icon: {
+    color: "#32CD30 !important",
+    paddingTop: "25px",
+    paddingBottom: "12px",
+    fontSize: "70px !important",
+    marginBottom: "30px",
+  },
+  gridContainer: {
+    marginTop: "100px",
+    width: "100% !important",
+    justifyContent: "center",
+    [theme.breakpoints.between("600", "1000")]: {
+      marginTop: "50px",
+    },
   },
 
-  boxes:{
-    display:"flex",
-    width:"60%",
-    margin:"0 auto",
-   // position:"absolute",
-    marginTop:"-200px",
-  
+  box: {
+    backgroundColor: "white",
+    marginLeft: "20px",
+    display: "flex",
+    flexDirection: "column",
+    padding: "40px !important",
+    justifyContent: "space-around",
+    alignItems: "center",
+    boxShadow: "0px 0px 25px 0px rgba(0,0,0,0.50)",
+    borderRadius: "20px",
+    [theme.breakpoints.between("0", "1000")]: {
+      padding: "0 !important",
+      marginBottom: "20px",
+    },
   },
-  box1:{
-    border:"1px solid black transparant",
-    width:"350px",
-    borderRadius:"6px",
-    boxShadow:" 3px 2px 3px 2px grey",
-    textAlign:"center",
-    background:"white"
-   
-
+  content2: {
+    padding: "0 30px",
+    textAlign: "center",
+    fontSize: "18px",
+    color: "grey",
+    marginBottom: "30px",
+    [theme.breakpoints.between("0", "1000")]: {
+      fontSize: "15px",
+    },
   },
-  box2:{
-    border:"1px solid black transparant",
-    width:"350px",
-    borderRadius:"6px",
-    boxShadow:" 3px 2px 3px 2px grey",
-    textAlign:"center",
-    marginLeft:"136px",
-    background:"white"
-
+  detail: {
+    color: "#3c4e73",
+    fontSize: "40px",
+    margin: "20px",
+    [theme.breakpoints.between("00", "1000")]: {
+      fontSize: "25px",
+    },
   },
-  box_content:{
-    paddingLeft:"25px",
-    paddingBottom:"22px",
-    paddingRight:"25px",
-  },
-  phone:{
-    paddingBottom:"25px"
-  }
-  
- 
 }));
 
 function Contact() {
   const classes = useStyles();
+  const data = [
+    {
+      content:
+        " Interested in Photoshoot?? Simply, pick up the phone to chat with a member of our team.",
+      detail: "+91 1234567890",
+    },
+    {
+      content:
+        " Interested in Photoshoot?? Simply, pick up the phone to chat with a member of our team.",
+      detail: "+91 1234567890",
+    },
+  ];
   return (
     <div className={classes.container}>
       <img src="/contact.jpg" alt="no-img" className={classes.image} />
 
-
       <div className={classes.content}>
-      <Typography variant="h3"  className={classes.heading}>
-        GET IN TOUCH
-      </Typography>
-       
-      <Typography  variant="body1" className={classes.subtitle}>
-        Want to get in touch? We'd love to hear from you.<br></br>
-        Here's how you can reach us....
+        <Typography variant="h3" className={classes.heading}>
+          GET IN TOUCH
         </Typography>
+
+        <Typography variant="body1" className={classes.subtitle}>
+          Want to get in touch? We'd love to hear from you. Here's how you can
+          reach us....
+        </Typography>
+
+        <Grid container spacing={2} className={classes.gridContainer}>
+          <Grid item sm={5} xs={12} className={classes.box}>
+            <WhatsAppIcon className={classes.Icon} />
+            <Typography variant="body1" className={classes.content2}>
+              {data[0].content}
+            </Typography>
+            <Typography variant="h3" className={classes.detail}>
+              {data[0].detail}
+            </Typography>
+          </Grid>
+          <Grid item sm={5} xs={12} className={classes.box}>
+            <WhatsAppIcon className={classes.Icon} />
+            <Typography variant="body1" className={classes.content2}>
+              {data[0].content}
+            </Typography>
+            <Typography variant="h3" className={classes.detail}>
+              {data[0].detail}
+            </Typography>
+          </Grid>
+        </Grid>
       </div>
-      {
-      // for the  boxes
-      }
-      <div className={classes.boxes}>
-
-        <div className={classes.box1}>
-        
-            <WhatsAppIcon  className={classes.Icon}/>
-             
-             <Typography variant="h6" className={classes.box_content}>
-               Interested in Photoshoot??<br></br>
-               Simply, pick up the phone to chat with<br></br>
-               a member of our team.
-               <br></br>
-             
-             </Typography>
-             <Typography variant="h4" className={classes.phone}>+91 1234567890</Typography>
-        </div>
-
-        <div className={classes.box2}>
-
-        </div>
-      </div>
-     
-     
-      <Typography variant="h5" align="center">Puducherry</Typography>
-      <Typography variant="h5" align="center">Muthialpet</Typography>
-
       <div className={classes.map}>
         <iframe
           id="iframeid"
@@ -140,7 +171,6 @@ function Contact() {
           src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Muthialpet,%20Pondicherry+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
         ></iframe>
       </div>
-
 
       <FooterContact />
     </div>
