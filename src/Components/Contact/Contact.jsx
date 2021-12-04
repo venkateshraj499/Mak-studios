@@ -18,28 +18,33 @@ const useStyles = makeStyles((theme) => ({
   iframe: {
     border: "none",
   },
+  image: {
+    marginTop: "-50px",
+    width: "100%",
+    objectFit: "contain",
+  },
 }));
 
 function Contact() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>  
-    <Typography variant="h3" align="center"className={classes.heading}>REACH US OUT</Typography>
-     <div className={classes.map}>
-      <iframe id="iframeid"
-        width="80%"
-        height="300"
-        className={classes.iframe}
-        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Muthialpet,%20Pondicherry+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-        </iframe>
-        </div>
-      
-      <Typography variant="body2" align="center">
-        abchjjkfjjgjgj
-        </Typography>
-      <Typography variant="body2" align="center">
-        abcd
-        </Typography>
+    <div className={classes.container}>
+      <img src="/contact.jpg" alt="no-img" className={classes.image} />
+      <Typography variant="h3" align="center" className={classes.heading}>
+        REACH US OUT
+      </Typography>
+      <div className={classes.map}>
+        <iframe
+          id="iframeid"
+          width="80%"
+          height="300"
+          className={classes.iframe}
+          src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Muthialpet,%20Pondicherry+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        ></iframe>
+      </div>
+
+      <Typography variant="body2" align="center"></Typography>
+      <Typography variant="body2" align="center"></Typography>
 
       <FooterContact />
     </div>
