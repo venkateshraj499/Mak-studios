@@ -23,26 +23,23 @@ const useStyles = makeStyles((theme) => ({
 function Contact() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <Typography variant="h4" align="center" className={classes.heading}>
-        CONTACT US
-      </Typography>
-      <div className={classes.map}>
-        <iframe
-          id="iframeid"
-          width="80%"
-          height="500"
-          className={classes.iframe}
-          src="https://www.google.com/maps/embed?api=1&origin=Space+Needle+Seattle+WA&destination=Pike+Place+Market+Seattle+WA&travelmode=bicycling"
-        ></iframe>
-      </div>
-
+    <div className={classes.container}>  
+    <Typography variant="h3" align="center"className={classes.heading}>REACH US OUT</Typography>
+     <div className={classes.map}>
+      <iframe id="iframeid"
+        width="80%"
+        height="300"
+        className={classes.iframe}
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Muthialpet,%20Pondicherry+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+        </iframe>
+        </div>
+      
       <Typography variant="body2" align="center">
         abchjjkfjjgjgj
-      </Typography>
+        </Typography>
       <Typography variant="body2" align="center">
         abcd
-      </Typography>
+        </Typography>
 
       <FooterContact />
     </div>
