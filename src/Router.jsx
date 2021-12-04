@@ -7,7 +7,6 @@ import Contact from "./Components/Contact/Contact";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    overflowY: "hidden",
     backgroundImage: "url(/background.jpg)",
     height: "100vh",
     marginTop: "0px",
