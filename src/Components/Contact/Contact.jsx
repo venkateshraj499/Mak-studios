@@ -81,6 +81,11 @@ const useStyles = makeStyles((theme) => ({
   },
   phone:{
     paddingBottom:"25px"
+  },
+
+  address:{
+    paddingTop:"80px",
+    paddingBottom:"80px"
   }
   
  
@@ -126,10 +131,10 @@ function Contact() {
 
         </div>
       </div>
-     
-     
+       <div className={classes.address}>
       <Typography variant="h5" align="center">Puducherry</Typography>
       <Typography variant="h5" align="center">Muthialpet</Typography>
+      </div>
 
       <div className={classes.map}>
         <iframe

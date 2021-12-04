@@ -14,8 +14,15 @@ const useStyles = makeStyles((theme) => ({
 
   Icon:{
       paddingLeft:"20px",
-      color:"#3c4e73 !important"
+      color:"#3c4e73 !important",
+      fontSize:"45px !important",
+      paddingTop:"95px",
+      PaddingBottom:"40px"
   },
+  copyright:{
+    paddingLeft:"25px", 
+    paddingBottom:"80px"
+  }
 
 
 }));
@@ -32,7 +39,7 @@ function FooterContact() {
          <EmailIcon  className={classes.Icon}/>
          <br></br>
 
-         <Typography variant="h6"> &copy; Copyright 2021</Typography>
+         <Typography variant="body1" className={classes.copyright}> &copy; Copyright 2021</Typography>
       
     
       
