@@ -25,15 +25,15 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     position: "relative",
     fontWeight: "600",
-    fontSize: "18px",
+    fontSize: "20px",
     cursor: "pointer",
     padding: "5px",
     marginBottom: "15px",
     "&:after": {
       content: '""',
       position: "absolute",
-      backgroundColor: "rgba(24,114,166,255)",
-      backgroundImage: "rgba(24,114,166,255)",
+      backgroundColor: "#3c4e73",
+      backgroundImage: "#3c4e73",
       height: "3px",
       width: "0",
       left: "0",
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     "&:hover": {
-      opacity: "0.7",
+      opacity: "0.8",
     },
   },
   logo: {
