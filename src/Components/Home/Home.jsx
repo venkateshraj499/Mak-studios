@@ -42,11 +42,25 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
     cursor: "pointer",
     marginRight: "80px",
+    [theme.breakpoints.down("600")]: {
+      fontSize: "30px",
+      marginRight: "30px",
+    },
+    [theme.breakpoints.between("600", "1000")]: {
+      marginRight: "40px",
+    },
   },
   modal: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-end",
+    [theme.breakpoints.down("600")]: {
+      marginLeft: "-50px",
+      marginTop: "110px",
+    },
+    [theme.breakpoints.between("600", "1000")]: {
+      marginTop: "100px",
+    },
   },
   imageWrapper: {},
   carousel: {
@@ -121,31 +135,20 @@ function Home() {
             showThumbs={false}
             showStatus={false}
             className={classes.carousel}
+            selectedItem={imageCollection.indexOf(selectedImage)}
           >
-            <div className={classes.imageWrapper}>
-              <img
-                src={selectedImage}
-                alt="No-Img"
-                width="100%"
-                className={classes.modalImage}
-              />
-            </div>
-            <div className={classes.imageWrapper}>
-              <img
-                src={selectedImage}
-                alt="No-Img"
-                width="100%"
-                className={classes.modalImage}
-              />
-            </div>
-            <div className={classes.imageWrapper}>
-              <img
-                src={selectedImage}
-                alt="No-Img"
-                width="100%"
-                className={classes.modalImage}
-              />
-            </div>
+            {imageCollection.map((image, i) => {
+              return (
+                <div className={classes.imageWrapper}>
+                  <img
+                    src={image}
+                    alt="No-Img"
+                    width="100%"
+                    className={classes.modalImage}
+                  />
+                </div>
+              );
+            })}
           </Carousel>
         </div>
       </Modal>
