@@ -22,12 +22,12 @@ function Contact() {
   return (
     <div className={classes.container}>
 
-      <Typography variant="h2" align="center"className={classes.heading}>Contact Us</Typography>
+      <Typography variant="h3" align="center"className={classes.heading}>REACH US OUT</Typography>
      <div className={classes.map}>
       <iframe id="iframeid"
         width="80%"
-        height="500"
-        src="https://www.google.com/maps/embed?api=1&origin=Space+Needle+Seattle+WA&destination=Pike+Place+Market+Seattle+WA&travelmode=bicycling">
+        height="300"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Muthialpet,%20Pondicherry+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
 
         </iframe>
         </div>
