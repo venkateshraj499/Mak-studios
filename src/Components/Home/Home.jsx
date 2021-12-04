@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Modal from "react-modal";
@@ -92,15 +92,15 @@ const customStyles = {
   },
 };
 const imageCollection = [
-  "/images/1.jpg",
-  "/images/6.jpg",
-  "/images/8.jpg",
-  "/images/4.jpg",
-  "/images/1.jpg",
-  "/images/6.jpg",
-  "/images/7.jpg",
-  "/images/8.jpg",
-  "/images/4.jpg",
+  "/1.jpg",
+  "/6.jpg",
+  "/8.jpg",
+  "/4.jpg",
+  "/1.jpg",
+  "/6.jpg",
+  "/7.jpg",
+  "/8.jpg",
+  "/4.jpg",
 ];
 
 function Home() {
@@ -110,13 +110,11 @@ function Home() {
   const [selectedImage, setSelectedImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [count, setCount] = useState(0);
-  const [allLoad, setAllLoad] = useState(false);
 
   const setOpen = (value, image) => {
     setIsOpen(value);
     setSelectedImage(image);
   };
-  const handleLoad = (i) => {};
   const color = "#2596be";
   return (
     <div className={classes.container}>
