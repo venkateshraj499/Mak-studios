@@ -166,7 +166,7 @@ function Header() {
   return (
     <div className={classes.container}>
       <img
-        src="/Mak.png"
+        src="/images/Mak.png"
         alt=""
         className={classes.logo}
         onClick={() => {
