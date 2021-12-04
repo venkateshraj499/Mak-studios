@@ -141,9 +141,7 @@ function Home() {
                 onLoad={() => {
                   setCount((prevState) => prevState + 1);
                   if (count === 8) {
-                    setTimeout(() => {
-                      setLoading(false);
-                    }, 1000);
+                    setLoading(false);
                   }
                 }}
               />
