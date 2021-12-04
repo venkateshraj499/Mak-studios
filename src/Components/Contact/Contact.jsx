@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   subtitle: {
+    paddingTop:"20px",
     fontFamily:
       " -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-seri !important",
   },
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   box_content:{
     paddingLeft:"25px",
-    paddingBottom:"18px",
+    paddingBottom:"22px",
     paddingRight:"25px",
   },
   phone:{
@@ -118,7 +119,7 @@ function Contact() {
                <br></br>
              
              </Typography>
-             <Typography variant="h5" className={classes.phone}>+91 1234567890</Typography>
+             <Typography variant="h4" className={classes.phone}>+91 1234567890</Typography>
         </div>
 
         <div className={classes.box2}>
@@ -127,8 +128,8 @@ function Contact() {
       </div>
      
      
-      <Typography variant="h6" align="center">Puducherry</Typography>
-      <Typography variant="h6" align="center">Muthialpet</Typography>
+      <Typography variant="h5" align="center">Puducherry</Typography>
+      <Typography variant="h5" align="center">Muthialpet</Typography>
 
       <div className={classes.map}>
         <iframe
