@@ -3,12 +3,27 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const useStyles = makeStyles((theme) => ({
   container: {
     justifyContent: "center",
   },
+
+  content:{
+   width:"80%",
+   //margin:"0 auto",
+   position:"absolute",
+   paddingLeft:"174px",
+   marginTop:"-470px"
+  },
   heading: {
+    fontFamily:
+      " -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-seri !important",
+  },
+
+  subtitle: {
+    paddingTop:"20px",
     fontFamily:
       " -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-seri !important",
   },
@@ -22,7 +37,53 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-50px",
     width: "100%",
     objectFit: "contain",
+   // height:"580px"
   },
+  Icon:{
+    color:"#32CD30 !important",
+    paddingTop:"25px",
+    paddingBottom:"12px",
+    fontSize: "70px !important"
+  },
+
+  boxes:{
+    display:"flex",
+    width:"60%",
+    margin:"0 auto",
+   // position:"absolute",
+    marginTop:"-200px",
+  
+  },
+  box1:{
+    border:"1px solid black transparant",
+    width:"350px",
+    borderRadius:"6px",
+    boxShadow:" 3px 2px 3px 2px grey",
+    textAlign:"center",
+    background:"white"
+   
+
+  },
+  box2:{
+    border:"1px solid black transparant",
+    width:"350px",
+    borderRadius:"6px",
+    boxShadow:" 3px 2px 3px 2px grey",
+    textAlign:"center",
+    marginLeft:"136px",
+    background:"white"
+
+  },
+  box_content:{
+    paddingLeft:"25px",
+    paddingBottom:"22px",
+    paddingRight:"25px",
+  },
+  phone:{
+    paddingBottom:"25px"
+  }
+  
+ 
 }));
 
 function Contact() {
@@ -30,9 +91,46 @@ function Contact() {
   return (
     <div className={classes.container}>
       <img src="/contact.jpg" alt="no-img" className={classes.image} />
-      <Typography variant="h3" align="center" className={classes.heading}>
-        REACH US OUT
+
+
+      <div className={classes.content}>
+      <Typography variant="h3"  className={classes.heading}>
+        GET IN TOUCH
       </Typography>
+       
+      <Typography  variant="body1" className={classes.subtitle}>
+        Want to get in touch? We'd love to hear from you.<br></br>
+        Here's how you can reach us....
+        </Typography>
+      </div>
+      {
+      // for the  boxes
+      }
+      <div className={classes.boxes}>
+
+        <div className={classes.box1}>
+        
+            <WhatsAppIcon  className={classes.Icon}/>
+             
+             <Typography variant="h6" className={classes.box_content}>
+               Interested in Photoshoot??<br></br>
+               Simply, pick up the phone to chat with<br></br>
+               a member of our team.
+               <br></br>
+             
+             </Typography>
+             <Typography variant="h4" className={classes.phone}>+91 1234567890</Typography>
+        </div>
+
+        <div className={classes.box2}>
+
+        </div>
+      </div>
+     
+     
+      <Typography variant="h5" align="center">Puducherry</Typography>
+      <Typography variant="h5" align="center">Muthialpet</Typography>
+
       <div className={classes.map}>
         <iframe
           id="iframeid"
@@ -43,8 +141,6 @@ function Contact() {
         ></iframe>
       </div>
 
-      <Typography variant="body2" align="center"></Typography>
-      <Typography variant="body2" align="center"></Typography>
 
       <FooterContact />
     </div>
