@@ -23,6 +23,14 @@ const useStyles = makeStyles((theme) => ({
   para: {
     paddingRight: "50px",
     color: "grey",
+    [theme.breakpoints.down("600")]: {
+      paddingLeft: "20px",
+    },
+  },
+  title: {
+    [theme.breakpoints.down("600")]: {
+      paddingLeft: "20px",
+    },
   },
 }));
 
@@ -57,7 +65,7 @@ function Contact() {
         {data.map((item) => (
           <Grid item md={4} sm={6} sx={12}>
             <div>
-              <h3>{item.title}</h3>
+              <h3 className={classes.title}>{item.title}</h3>
               <p className={classes.para}>{item.content}</p>
             </div>
           </Grid>
