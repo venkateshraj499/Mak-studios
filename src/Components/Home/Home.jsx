@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Modal from "react-modal";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -67,6 +68,15 @@ const useStyles = makeStyles((theme) => ({
     width: "80% !important",
     margin: "0 auto",
   },
+  loader: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+  loaderNone: {
+    display: "none",
+  },
 }));
 const customStyles = {
   content: {
@@ -98,15 +108,26 @@ function Home() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [count, setCount] = useState(0);
+  const [allLoad, setAllLoad] = useState(false);
 
   const setOpen = (value, image) => {
     setIsOpen(value);
     setSelectedImage(image);
   };
-
+  const handleLoad = (i) => {};
+  const color = "#2596be";
   return (
     <div className={classes.container}>
-      <Grid className={classes.gridContainer} container spacing={0}>
+      <div className={loading ? classes.loader : classes.loaderNone}>
+        <PulseLoader loading={loading} color={color} />
+      </div>
+      <Grid
+        className={loading ? classes.loaderNone : classes.gridContainer}
+        container
+        spacing={0}
+      >
         {imageCollection.map((image, index) => (
           <Grid item md={4} sm={6} xs={12} className={classes.gridRow}>
             <div className={classes.image}>
@@ -117,6 +138,15 @@ function Home() {
                 className={classes.imageItem}
                 onClick={() => {
                   setOpen(true, image);
+                  setLoading(true);
+                }}
+                onLoad={() => {
+                  setCount((prevState) => prevState + 1);
+                  if (count === 8) {
+                    setTimeout(() => {
+                      setLoading(false);
+                    }, 1000);
+                  }
                 }}
               />
             </div>
@@ -145,6 +175,9 @@ function Home() {
                     alt="No-Img"
                     width="100%"
                     className={classes.modalImage}
+                    onLoad={() => {
+                      setLoading(false);
+                    }}
                   />
                 </div>
               );

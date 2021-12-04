@@ -136,6 +136,8 @@ function Header() {
 
   const handleNavigate = (slug) => {
     navigate(slug);
+
+    setAnchorEl(null);
   };
 
   const headerData = [
