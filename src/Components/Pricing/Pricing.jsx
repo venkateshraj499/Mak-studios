@@ -1,6 +1,6 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, Button } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
 import Grid from "@material-ui/core/Grid";
@@ -78,6 +78,10 @@ const useStyles = makeStyles((theme) => ({
   title2: {
     paddingLeft: "30px",
     textDecoration: "underline",
+    [theme.breakpoints.down("1000")]: {
+      paddingLeft: "30px",
+      textAlign: "left",
+    },
   },
   optionContainer: {
     display: "flex",
@@ -121,7 +125,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Contact() {
   const classes = useStyles();
-  const [loading, setLoading] = useState(true);
   const data = [
     {
       title: "SILVER",
@@ -177,8 +180,7 @@ function Contact() {
         className={classes.carousel}
         swipeable={true}
         autoPlay={true}
-        infiniteLoop={true}
-        interval={2000}
+        interval={3000}
         showThumbs={false}
         showStatus={false}
         showArrows={false}
