@@ -152,9 +152,7 @@ function Home() {
                   afterLoad={() => {
                     let copy = [...loading];
                     copy[index] = false;
-                    setTimeout(() => {
-                      setLoading(copy);
-                    }, 1000);
+                    setLoading(copy);
                   }}
                 />
               </div>
