@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "contain",
     cursor: "pointer",
     transition: "transform 0.2s",
+    minHeight: "150px",
     "&:hover": {
       transform: "scale(1.3)",
     },
@@ -70,10 +71,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "0 auto",
   },
   loader: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    width: "100%",
+    minHeight: "200px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   loaderNone: {
     display: "none",
@@ -109,8 +111,17 @@ function Home() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
 
   const setOpen = (value, image) => {
     setIsOpen(value);
@@ -119,36 +130,35 @@ function Home() {
   const color = "#2596be";
   return (
     <div className={classes.container}>
-      <div className={loading ? classes.loader : classes.loaderNone}>
-        <PulseLoader loading={loading} color={color} />
-      </div>
-      <Grid
-        className={loading ? classes.loaderNone : classes.gridContainer}
-        container
-        spacing={0}
-      >
+      <Grid className={classes.gridContainer} container spacing={0}>
         {imageCollection.map((image, index) => (
-          <Grid item md={4} sm={6} xs={12} className={classes.gridRow}>
-            <div className={classes.image}>
-              <LazyLoadImage
-                effect="blur"
-                src={image}
-                alt="No-Img"
-                width="100%"
-                className={classes.imageItem}
-                onClick={() => {
-                  setOpen(true, image);
-                  setLoading(true);
-                }}
-                onLoad={() => {
-                  setCount((prevState) => prevState + 1);
-                  if (count === 8) {
-                    setLoading(false);
-                  }
-                }}
-              />
+          <>
+            <div
+              className={loading[index] ? classes.loader : classes.loaderNone}
+            >
+              <PulseLoader loading={loading[index]} color={color} />
             </div>
-          </Grid>
+            <Grid item md={4} sm={6} xs={12} className={classes.gridRow}>
+              <div className={classes.image}>
+                <LazyLoadImage
+                  effect="blur"
+                  src={image}
+                  alt="No-Img"
+                  width="100%"
+                  className={classes.imageItem}
+                  onClick={() => {
+                    setOpen(true, image);
+                    setLoading(true);
+                  }}
+                  afterLoad={() => {
+                    let copy = [...loading];
+                    copy[index] = false;
+                    setLoading(copy);
+                  }}
+                />
+              </div>
+            </Grid>
+          </>
         ))}
       </Grid>
       <Modal isOpen={modalIsOpen} style={customStyles}>
