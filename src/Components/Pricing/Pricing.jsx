@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#3c4e73 !important",
     margin: "0 auto",
     fontSize: "50px",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "30px",
+      padding: "0px 30px",
+    },
   },
   subHeading: {
     textAlign: "center",
@@ -36,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
     marginBottom: "50px",
     fontSize: "25px",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "20px",
+      padding: "0px 30px",
+    },
   },
   box: {
     display: "flex",
