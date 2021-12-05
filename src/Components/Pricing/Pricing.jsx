@@ -184,7 +184,7 @@ function Contact() {
         showThumbs={false}
         showStatus={false}
         showArrows={false}
-        showIndicators={true}
+        showIndicators={false}
       >
         {data.map((item) => (
           <div className={classes.borderDiv}>
