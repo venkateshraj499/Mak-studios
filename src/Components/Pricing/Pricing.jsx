@@ -188,7 +188,7 @@ function Contact() {
         className={classes.carousel}
         swipeable={true}
         autoPlay={true}
-        interval={3000}
+        interval={2000}
         showThumbs={false}
         showStatus={false}
         showArrows={false}
