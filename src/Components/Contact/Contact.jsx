@@ -1,10 +1,12 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Grid from "@material-ui/core/Grid";
+import PulseLoader from "react-spinners/ClipLoader";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -61,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "-50px",
     width: "100%",
     objectFit: "contain",
+    minHeight: "200px",
   },
   Icon: {
     color: "#32CD30 !important",
@@ -111,10 +114,21 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "25px",
     },
   },
+  loader: {
+    width: "100%",
+    minHeight: "200px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loaderNone: {
+    display: "none",
+  },
 }));
 
 function Contact() {
   const classes = useStyles();
+  const [loading, setLoading] = useState(true);
   const data = [
     {
       content:
@@ -129,8 +143,19 @@ function Contact() {
   ];
   return (
     <div className={classes.container}>
-      <img src="/contact.jpg" alt="no-img" className={classes.image} />
-
+      <div className={loading ? classes.loader : classes.loaderNone}>
+        <PulseLoader loading={loading} />
+      </div>
+      <LazyLoadImage
+        effect="blur"
+        src="/contact.jpg"
+        alt="No-Img"
+        width="100%"
+        className={classes.image}
+        afterLoad={() => {
+          setLoading(false);
+        }}
+      />
       <div className={classes.content}>
         <Typography variant="h3" className={classes.heading}>
           GET IN TOUCH

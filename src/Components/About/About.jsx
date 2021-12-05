@@ -1,10 +1,12 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
 import Grid from "@material-ui/core/Grid";
 import Img1 from "./1.jpg";
+import PulseLoader from "react-spinners/ClipLoader";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -32,10 +34,21 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "20px",
     },
   },
+  loader: {
+    width: "100%",
+    minHeight: "200px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loaderNone: {
+    display: "none",
+  },
 }));
 
 function Contact() {
   const classes = useStyles();
+  const [loading, setLoading] = useState(true);
   const data = [
     {
       title: "ABOUT",
@@ -55,12 +68,33 @@ function Contact() {
   ];
   return (
     <div className={classes.container}>
+      <div className={loading ? classes.loader : classes.loaderNone}>
+        <PulseLoader loading={loading} />
+      </div>
       <Grid container spacing={0} className={classes.gridContainer}>
         <Grid item xs={6}>
-          <img src={Img1} alt="no-img" className={classes.image} />
+          <LazyLoadImage
+            effect="blur"
+            src={Img1}
+            alt="No-Img"
+            width="100%"
+            className={classes.image}
+            afterLoad={() => {
+              setLoading(false);
+            }}
+          />
         </Grid>
         <Grid item xs={6}>
-          <img src={Img1} alt="no-img" className={classes.image} />
+          <LazyLoadImage
+            effect="blur"
+            src={Img1}
+            alt="No-Img"
+            width="100%"
+            className={classes.image}
+            afterLoad={() => {
+              setLoading(false);
+            }}
+          />
         </Grid>
         {data.map((item) => (
           <Grid item md={4} sm={6} sx={12}>
