@@ -5,6 +5,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core";
 import Contact from "./Components/Contact/Contact";
 import About from "./Components/About/About";
+import Pricing from "./Components/Pricing/Pricing";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,6 +26,7 @@ function Router() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/about" element={<About />} />
+          <Route exact path="/pricing" element={<Pricing />} />
         </Routes>
       </BrowserRouter>
     </div>
