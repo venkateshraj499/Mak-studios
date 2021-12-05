@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import PulseLoader from "react-spinners/PulseLoader";
+import PulseLoader from "react-spinners/ClipLoader";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const useStyles = makeStyles((theme) => ({
@@ -133,12 +133,12 @@ function Home() {
       <Grid className={classes.gridContainer} container spacing={0}>
         {imageCollection.map((image, index) => (
           <>
-            <div
-              className={loading[index] ? classes.loader : classes.loaderNone}
-            >
-              <PulseLoader loading={loading[index]} color={color} />
-            </div>
             <Grid item md={4} sm={6} xs={12} className={classes.gridRow}>
+              <div
+                className={loading[index] ? classes.loader : classes.loaderNone}
+              >
+                <PulseLoader loading={loading[index]} color={color} />
+              </div>
               <div className={classes.image}>
                 <LazyLoadImage
                   effect="blur"
@@ -148,12 +148,13 @@ function Home() {
                   className={classes.imageItem}
                   onClick={() => {
                     setOpen(true, image);
-                    setLoading(true);
                   }}
                   afterLoad={() => {
                     let copy = [...loading];
                     copy[index] = false;
-                    setLoading(copy);
+                    setTimeout(() => {
+                      setLoading(copy);
+                    }, 1000);
                   }}
                 />
               </div>
