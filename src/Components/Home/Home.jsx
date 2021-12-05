@@ -6,6 +6,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PulseLoader from "react-spinners/PulseLoader";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -108,7 +109,7 @@ function Home() {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
 
   const setOpen = (value, image) => {
@@ -129,7 +130,8 @@ function Home() {
         {imageCollection.map((image, index) => (
           <Grid item md={4} sm={6} xs={12} className={classes.gridRow}>
             <div className={classes.image}>
-              <img
+              <LazyLoadImage
+                effect="blur"
                 src={image}
                 alt="No-Img"
                 width="100%"
