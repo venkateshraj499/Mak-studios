@@ -186,7 +186,8 @@ function Contact() {
       <p className={classes.subHeading}>Explore into our new packages</p>
       <Carousel
         className={classes.carousel}
-        swipeable={true}
+        swipeable={false}
+        infiniteLoop={true}
         autoPlay={true}
         interval={2000}
         showThumbs={false}
