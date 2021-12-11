@@ -285,7 +285,7 @@ function Contact() {
                   {item.price} for {item.duration}
                 </h2>
                 <a
-                  href=" https://wa.me/8870242215"
+                  href=" https://wa.me/+91 8870242215"
                   target="_blank"
                   className={classes.link}
                 >
