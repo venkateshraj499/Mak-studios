@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     objectFit: "contain",
     cursor: "pointer",
     transition: "transform 0.2s",
-    minHeight: "150px",
+    minHeight: "200px",
     "&:hover": {
       transform: "scale(1.3)",
     },

@@ -8,6 +8,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "0px 50px 100px 50px",
@@ -119,7 +120,13 @@ const useStyles = makeStyles((theme) => ({
       transform: "scale(1.1)",
     },
     [theme.breakpoints.down("1000")]: {
-      boxShadow: "none",
+      boxShadow: "0px 10px 16px 3px rgba(0,0,0,0.50)",
+    },
+    [theme.breakpoints.down("764")]: {
+      transition: "none",
+      "&:hover": {
+        transform: "none",
+      },
     },
   },
   carousel: {
@@ -128,6 +135,38 @@ const useStyles = makeStyles((theme) => ({
       display: "inline-block",
       width: "100%",
     },
+  },
+  Icon: {
+    color: "#32CD30 !important",
+    paddingTop: "25px",
+    paddingBottom: "12px",
+    fontSize: "70px !important",
+    marginBottom: "30px",
+  },
+  content2: {
+    padding: "0 30px",
+    textAlign: "center",
+    fontSize: "18px",
+    color: "grey",
+    marginBottom: "30px",
+    [theme.breakpoints.between("0", "1000")]: {
+      fontSize: "15px",
+    },
+  },
+  detail: {
+    color: "#3c4e73",
+    fontSize: "40px",
+    margin: "20px",
+    [theme.breakpoints.between("00", "1000")]: {
+      fontSize: "25px",
+    },
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+    width: "100% ",
+    display: "flex",
+    justifyContent: "center",
   },
 }));
 
@@ -180,6 +219,7 @@ function Contact() {
       ],
     },
   ];
+
   return (
     <div className={classes.container}>
       <h1 className={classes.heading}>Ready to start with our service?</h1>
@@ -203,14 +243,20 @@ function Contact() {
               <h2 className={classes.duration}>
                 {item.price} for {item.duration}
               </h2>
-              <Button
-                className={classes.button}
-                color="primary"
-                variant="contained"
-                size="large"
+              <a
+                href=" https://wa.me/8870242215"
+                target="_blank"
+                className={classes.link}
               >
-                BOOK NOW
-              </Button>
+                <Button
+                  className={classes.button}
+                  color="primary"
+                  variant="contained"
+                  size="large"
+                >
+                  BOOK NOW
+                </Button>
+              </a>
               <h3 className={classes.title2}>Included with: </h3>
 
               {item.option.map((sub) => (
@@ -238,14 +284,20 @@ function Contact() {
                 <h2 className={classes.duration}>
                   {item.price} for {item.duration}
                 </h2>
-                <Button
-                  className={classes.button}
-                  color="primary"
-                  variant="contained"
-                  size="large"
+                <a
+                  href=" https://wa.me/8870242215"
+                  target="_blank"
+                  className={classes.link}
                 >
-                  BOOK NOW
-                </Button>
+                  <Button
+                    className={classes.button}
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                  >
+                    BOOK NOW
+                  </Button>
+                </a>
                 <h3 className={classes.title2}>Included with: </h3>
 
                 {item.option.map((sub) => (
