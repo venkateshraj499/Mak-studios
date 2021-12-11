@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     position: "relative",
     fontWeight: "600",
-    fontSize: "23px",
+    fontSize: "20px",
     cursor: "pointer",
     padding: "5px",
     marginBottom: "15px",
