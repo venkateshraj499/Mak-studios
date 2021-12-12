@@ -31,7 +31,15 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "20px",
     },
   },
+  clientTitle: {
+    color: "#3c4e73 ",
+    textAlign: "center",
+    [theme.breakpoints.down("800")]: {
+      fontSize: "24px",
+    },
+  },
   title: {
+    color: "#3c4e73 ",
     [theme.breakpoints.down("600")]: {
       paddingLeft: "20px",
     },
@@ -46,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     width: "75%",
     margin: "0 auto",
     marginBottom: "80px",
+    marginTop: "-50px",
     padding: "25px",
     paddingTop: "50px",
     backgroundColor: "lightblue",
@@ -59,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   reviewContent: {
     fontSize: "20px",
     fontStyle: "italic",
-    marginTop: "10px",
+    marginTop: "20px",
     [theme.breakpoints.down("800")]: {
       fontSize: "16px",
     },
@@ -67,34 +76,30 @@ const useStyles = makeStyles((theme) => ({
   reviewName: {
     fontSize: "23px",
     display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "flex-end",
-    marginRight: "25px",
     fontStyle: "italic",
     marginTop: "10px",
     [theme.breakpoints.down("800")]: {
       fontSize: "20px",
-      marginRight: "0",
-      marginLeft: "50px",
     },
   },
   icon: {
     fontSize: "125px !important",
     marginLeft: "150px",
-    marginBottom: "-60px",
+    marginBottom: "-20px",
     color: "lightcoral",
     [theme.breakpoints.down("1000")]: {
       marginLeft: "10px",
     },
   },
-  active: {
-    height: "2px",
-    width: "30px",
-    backgroundColor: "blue",
-  },
-  inactive: {
-    height: "2px",
-    width: "2px",
-    backgroundColor: "lightblue",
+  customer: {
+    height: "80px",
+    width: "80px",
+    borderRadius: "50%",
+    border: "5px solid white",
+    margin: "20px",
   },
 }));
 const responsive = {
@@ -128,23 +133,24 @@ function Contact() {
   ];
   const review = [
     {
-      name: "Venkatesh, Pondicherry",
+      name: "Divya, Pondicherry",
       content:
         "Love Mak Photography! The team did an AMAZING job on our Birthday party’s photos/video. They were communicative, easy to work with, creative, informative and helpful with many aspects. Their timeliness of getting our photos/videos to us was amazing! We are so lucky to have these memories captured for a lifetime. ",
     },
     {
-      name: "Aravindhan, Pondicherry",
+      name: "Varunesh, Pondicherry",
       content:
         "Mak and Team photographed our House warming and they were exceptional. We had a large function and the team was so calm and kind and kept us on track with all our photos. Our pictures are incredible! We couldn't be happier. It was a pleasure working with you and we look forward to working with you in the future! Thank you!",
     },
     {
-      name: "Ravi, Pondicherry",
+      name: "Sumitha, Pondicherry",
       content:
         "On our re-union day we had Mak and team to capture our moments. They were absolutely wonderful and their photos turned out stunning, truly capturing everything and more of our special meet.",
     },
   ];
   return (
     <div className={classes.container}>
+      <h1 className={classes.clientTitle}>OUR CLIENT'S TESTIMONY</h1>
       <Carousel
         responsive={responsive}
         removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -156,7 +162,14 @@ function Contact() {
             <QuoteIcon className={classes.icon} />
             <div className={classes.review}>
               <div className={classes.reviewContent}>"{item.content}"</div>
-              <div className={classes.reviewName}>- {item.name}</div>
+              <div className={classes.reviewName}>
+                <img
+                  src="/customer1.jpg"
+                  className={classes.customer}
+                  alt="no image"
+                />
+                - {item.name}
+              </div>
             </div>
           </>
         ))}
