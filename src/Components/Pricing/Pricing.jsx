@@ -78,10 +78,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "30px",
   },
   title: {
-    paddingLeft: "30px",
+    backgroundColor: "rgb(197, 218, 248)",
+    textAlign: "center",
+    marginTop: "-30px",
+    padding: "10px",
+    fontWeight: "500",
+    borderRadius: "20px",
     [theme.breakpoints.down("1000")]: {
-      paddingLeft: "30px",
-      textAlign: "left",
+      marginTop: "-25px",
     },
   },
   title2: {
