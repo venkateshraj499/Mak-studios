@@ -166,7 +166,7 @@ function Contact() {
                 <img
                   src="/customer1.jpg"
                   className={classes.customer}
-                  alt="no image"
+                  alt="no"
                 />
                 - {item.name}
               </div>
