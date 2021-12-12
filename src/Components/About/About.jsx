@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
 import Grid from "@material-ui/core/Grid";
-import Img1 from "./1.jpg";
-import PulseLoader from "react-spinners/ClipLoader";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -34,18 +33,35 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "20px",
     },
   },
-  loader: {
-    width: "100%",
-    minHeight: "200px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+  gridContainer: {
+    marginTop: "100px",
   },
-  loaderNone: {
-    display: "none",
+  review: {
+    width: "80%",
+    margin: "0 auto",
+    [theme.breakpoints.down("800")]: {
+      width: "70%",
+    },
   },
 }));
-
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 800 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 800, min: 0 },
+    items: 1,
+  },
+};
 function Contact() {
   const classes = useStyles();
   const [loading, setLoading] = useState(true);
@@ -53,52 +69,45 @@ function Contact() {
     {
       title: "ABOUT",
       content:
-        "Click here to add or edit your text. You can also add bold or italic font treatments, bulleted lists or text links by highlighting the text you would like to change and clicking the appropriate selection in the pop-up.",
+        "We, Mak Pitcures specialize in family, corporate and special events, at your destination to capture the perfect moment in the perfect place. From the shores here in Rock Beach to the beaches of Serinity in Auroville and beyond. We will be there with you every step of the way to guarantee your special moments are captured for all time.We are incredibly blessed to have a team of photographers who work with us on any given weekend.",
     },
     {
-      title: "CLIENTS",
+      title: "WHAT DO WE DO?",
       content:
-        "Click here to add or edit your text. You can also add bold or italic font treatments, bulleted lists or text links by highlighting the text you would like to change and clicking the appropriate selection in the pop-up.",
+        "To us photography is about people being real and then letting us paint a picture of that moment to remember it forever. This is the story that matters most: real people, real stories, real moments.A team who is highly inspired by cinema and movies, we always want to capture the moments in a grand way as it is meant to be, cinematic, poetic, and BEAUTIFUL. ",
+    },
+  ];
+  const review = [
+    {
+      name: "Venkatesh",
+      content:
+        "Love Mak Photography! The team did an AMAZING job on our Birthday party’s photos/video. They were communicative, easy to work with, creative, informative and helpful with many aspects. Their timeliness of getting our photos/videos to us was amazing! We are so lucky to have these memories captured for a lifetime. ",
     },
     {
-      title: "EXPERIENCE",
+      name: "Aravindhan",
       content:
-        "Click here to add or edit your text. You can also add bold or italic font treatments, bulleted lists or text links by highlighting the text you would like to change and clicking the appropriate selection in the pop-up.",
+        "Mak and Team photographed our House warming and they were exceptional. We had a large function and the team was so calm and kind and kept us on track with all our photos. Our pictures are incredible! We couldn't be happier. It was a pleasure working with you and we look forward to working with you in the future! Thank you!",
+    },
+    {
+      name: "Ravi",
+      content:
+        "On our re-union day we had Mak and team to capture our moments. They were absolutely wonderful and their photos turned out stunning, truly capturing everything and more of our special meet.",
     },
   ];
   return (
     <div className={classes.container}>
-      <div className={loading ? classes.loader : classes.loaderNone}>
-        <PulseLoader loading={loading} />
-      </div>
+      <Carousel responsive={responsive}>
+        {review.map((item) => (
+          <div className={classes.review}>
+            <div>{item.name}</div>
+            <div>{item.content}</div>
+          </div>
+        ))}
+      </Carousel>
       <Grid container spacing={0} className={classes.gridContainer}>
-        <Grid item xs={6}>
-          <LazyLoadImage
-            effect="blur"
-            src={Img1}
-            alt="No-Img"
-            width="100%"
-            className={classes.image}
-            afterLoad={() => {
-              setLoading(false);
-            }}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <LazyLoadImage
-            effect="blur"
-            src={Img1}
-            alt="No-Img"
-            width="100%"
-            className={classes.image}
-            afterLoad={() => {
-              setLoading(false);
-            }}
-          />
-        </Grid>
         {data.map((item) => (
-          <Grid item md={4} sm={6} sx={12}>
-            <div>
+          <Grid item md={6} sm={6} sx={12}>
+            <div className={classes.wrapper}>
               <h3 className={classes.title}>{item.title}</h3>
               <p className={classes.para}>{item.content}</p>
             </div>

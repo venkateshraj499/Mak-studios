@@ -7,6 +7,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Grid from "@material-ui/core/Grid";
 import PulseLoader from "react-spinners/ClipLoader";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import EmailIcon from "@mui/icons-material/Email";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -132,13 +133,13 @@ function Contact() {
   const data = [
     {
       content:
-        " Interested in Photoshoot?? Simply, pick up the phone to chat with a member of our team.",
-      detail: "+91 1234567890",
+        "We would love to visit with you by phone or in person and talk about your wedding, event, portrait session or video project. Please reach out to us through the Contact Page.",
+      detail: "+91 8870242215",
     },
     {
       content:
-        " Interested in Photoshoot?? Simply, pick up the phone to chat with a member of our team.",
-      detail: "+91 1234567890",
+        " Interested in Photoshoot?? We would love to meet your queries in our inbox. Mail us at",
+      detail: "mohanvhss@gmail.com",
     },
   ];
   return (
@@ -177,12 +178,12 @@ function Contact() {
             </Typography>
           </Grid>
           <Grid item sm={5} xs={12} className={classes.box}>
-            <WhatsAppIcon className={classes.Icon} />
+            <EmailIcon className={classes.Icon} />
             <Typography variant="body1" className={classes.content2}>
-              {data[0].content}
+              {data[1].content}
             </Typography>
             <Typography variant="h3" className={classes.detail}>
-              {data[0].detail}
+              {data[1].detail}
             </Typography>
           </Grid>
         </Grid>
