@@ -18,11 +18,27 @@ const useStyles = makeStyles((theme) => ({
       color:"#3c4e73 !important",
       fontSize:"25px !important",
       paddingTop:"95px",
-      PaddingBottom:"40px"
+      PaddingBottom:"40px",
+      [theme.breakpoints.between("0", "1000")]: {
+        PaddingBottom:"20px",  
+        marginLeft:"auto" ,
+        marginRight:"auto",
+        paddingLeft:"7px",
+        paddingTop:"70px",
+
+      },
   },
   copyright:{
     paddingLeft:"15px", 
-    paddingBottom:"80px"
+    paddingBottom:"80px",
+    [theme.breakpoints.between("0", "1000")]: {
+      PaddingBottom:"40px",  
+      marginLeft:"auto" ,
+      marginRight:"auto",
+      paddingLeft:"15px", 
+      fontSize:"14px"
+     
+    },
   },
   link:{
     textDecoration:"none"
