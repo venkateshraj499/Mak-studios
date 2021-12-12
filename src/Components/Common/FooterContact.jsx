@@ -3,6 +3,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 
 
@@ -13,15 +14,18 @@ const useStyles = makeStyles((theme) => ({
   },
 
   Icon:{
-      paddingLeft:"20px",
+      paddingLeft:"10px",
       color:"#3c4e73 !important",
-      fontSize:"45px !important",
+      fontSize:"25px !important",
       paddingTop:"95px",
       PaddingBottom:"40px"
   },
   copyright:{
-    paddingLeft:"25px", 
+    paddingLeft:"15px", 
     paddingBottom:"80px"
+  },
+  link:{
+    textDecoration:"none"
   }
 
 
@@ -33,13 +37,16 @@ function FooterContact() {
     <div className={classes.container}>
     
     
-         <FacebookIcon  className={classes.Icon}/>
-         <InstagramIcon  className={classes.Icon}/>
-        
-         <EmailIcon  className={classes.Icon}/>
+    <a href="https://www.facebook.com/mohan.vijay.1023" className={classes.link} ><FacebookIcon  className={classes.Icon}/> </a>
+         
+     <a href="https://instagram.com/_mohan_mak_?utm_medium=copy_link" className={classes.link}><InstagramIcon  className={classes.Icon}/> </a>
+
+     <a href="https://www.youtube.com" className={classes.link}><WhatsAppIcon  className={classes.Icon}/> </a>
+
+     <a href="Mohanvhss@gmail.com" className={classes.link}><EmailIcon  className={classes.Icon}/> </a>
          <br></br>
 
-         <Typography variant="body1" className={classes.copyright}> &copy; Copyright 2021</Typography>
+     <Typography variant="body1" className={classes.copyright}> &copy; Copyright 2021</Typography>
       
     
       
