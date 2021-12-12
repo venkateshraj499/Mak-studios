@@ -1,15 +1,18 @@
 /* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core";
 import FooterContact from "../Common/FooterContact";
 import Grid from "@material-ui/core/Grid";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import QuoteIcon from "@mui/icons-material/FormatQuote";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: "0px 100px 100px 100px",
+    maxWidth: "1440px",
+    margin: "0 auto",
     [theme.breakpoints.between("600", "954")]: {
       padding: "0px 50px 50px 50px",
     },
@@ -34,21 +37,67 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   gridContainer: {
-    marginTop: "100px",
+    marginTop: "50px",
+    [theme.breakpoints.down("800")]: {
+      marginTop: "0px",
+    },
   },
   review: {
-    width: "80%",
+    width: "75%",
     margin: "0 auto",
+    marginBottom: "80px",
+    padding: "25px",
+    paddingTop: "50px",
+    backgroundColor: "lightblue",
+    borderRadius: "24px",
     [theme.breakpoints.down("800")]: {
-      width: "70%",
+      width: "85%",
+      padding: "16px",
+      marginBottom: "25px",
     },
+  },
+  reviewContent: {
+    fontSize: "20px",
+    fontStyle: "italic",
+    marginTop: "10px",
+    [theme.breakpoints.down("800")]: {
+      fontSize: "16px",
+    },
+  },
+  reviewName: {
+    fontSize: "23px",
+    display: "flex",
+    justifyContent: "flex-end",
+    marginRight: "25px",
+    fontStyle: "italic",
+    marginTop: "10px",
+    [theme.breakpoints.down("800")]: {
+      fontSize: "20px",
+      marginRight: "0",
+      marginLeft: "50px",
+    },
+  },
+  icon: {
+    fontSize: "125px !important",
+    marginLeft: "150px",
+    marginBottom: "-60px",
+    color: "lightcoral",
+    [theme.breakpoints.down("1000")]: {
+      marginLeft: "10px",
+    },
+  },
+  active: {
+    height: "2px",
+    width: "30px",
+    backgroundColor: "blue",
+  },
+  inactive: {
+    height: "2px",
+    width: "2px",
+    backgroundColor: "lightblue",
   },
 }));
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 1,
@@ -62,9 +111,9 @@ const responsive = {
     items: 1,
   },
 };
+
 function Contact() {
   const classes = useStyles();
-  const [loading, setLoading] = useState(true);
   const data = [
     {
       title: "ABOUT",
@@ -79,29 +128,37 @@ function Contact() {
   ];
   const review = [
     {
-      name: "Venkatesh",
+      name: "Venkatesh, Pondicherry",
       content:
         "Love Mak Photography! The team did an AMAZING job on our Birthday party’s photos/video. They were communicative, easy to work with, creative, informative and helpful with many aspects. Their timeliness of getting our photos/videos to us was amazing! We are so lucky to have these memories captured for a lifetime. ",
     },
     {
-      name: "Aravindhan",
+      name: "Aravindhan, Pondicherry",
       content:
         "Mak and Team photographed our House warming and they were exceptional. We had a large function and the team was so calm and kind and kept us on track with all our photos. Our pictures are incredible! We couldn't be happier. It was a pleasure working with you and we look forward to working with you in the future! Thank you!",
     },
     {
-      name: "Ravi",
+      name: "Ravi, Pondicherry",
       content:
         "On our re-union day we had Mak and team to capture our moments. They were absolutely wonderful and their photos turned out stunning, truly capturing everything and more of our special meet.",
     },
   ];
   return (
     <div className={classes.container}>
-      <Carousel responsive={responsive}>
+      <Carousel
+        responsive={responsive}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        infinite={true}
+        autoPlay={true}
+      >
         {review.map((item) => (
-          <div className={classes.review}>
-            <div>{item.name}</div>
-            <div>{item.content}</div>
-          </div>
+          <>
+            <QuoteIcon className={classes.icon} />
+            <div className={classes.review}>
+              <div className={classes.reviewContent}>"{item.content}"</div>
+              <div className={classes.reviewName}>- {item.name}</div>
+            </div>
+          </>
         ))}
       </Carousel>
       <Grid container spacing={0} className={classes.gridContainer}>

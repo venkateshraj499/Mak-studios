@@ -182,9 +182,6 @@ function Home() {
                     alt="No-Img"
                     width="100%"
                     className={classes.modalImage}
-                    onLoad={() => {
-                      setLoading(false);
-                    }}
                   />
                 </div>
               );
